@@ -24,6 +24,7 @@ h5,
 h6 {
   font-family: var(--font-primary);
   margin: 0;
+  font-weight: 400;
 }
 
 a {

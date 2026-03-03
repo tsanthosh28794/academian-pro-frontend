@@ -21,7 +21,7 @@
 
     <header class="header">
       <div class="container nav">
-        <div class="logo">academian</div>
+        <a href="#" class="logo fw-regular fs-18">academian</a>
 
         <button
           class="nav-toggle"
@@ -124,8 +124,10 @@
         <div class="hero-v-stripe-yellow"></div>
         <div class="container hero-wrapper">
           <div class="hero-content">
-            <h1>Simplify Learning Experiences with Learning Pods</h1>
-            <p>
+            <h1 class="font-normal">
+              Simplify Learning Experiences with Learning Pods
+            </h1>
+            <p class="font-normal fs-13 font-light">
               Explore our platform. Connect with your learning community. Curate
               a better world, one byte of knowledge at a time.
             </p>
@@ -188,19 +190,29 @@
       <!-- Intro Section -->
       <section class="section">
         <div class="container">
-          <h2 class="section-title">What are Learning Pods?</h2>
-          <p class="section-subtitle mb-xs">
-            Learning Pods started out with a goal to reimagine how we learn,
-            share expertise, connect with one another as a community and explore
-            a myriad of opportunities.
-          </p>
+          <!-- Floating Text Content -->
+          <div class="relative text-center mx-auto">
+            <h2 class="section-title">What are Learning Pods?</h2>
+            <p class="section-subtitle mb-xs">
+              Learning Pods started out with a goal to reimagine how we learn,
+              share expertise, connect with one another as a community and
+              explore a myriad of opportunities.
+            </p>
+          </div>
 
-          <!-- Pods Carousel/Grid -->
-          <div class="">
-            <img
-              src="assets/images/portfolio-gallery.png"
-              alt="Mobile App Screenshot"
-            />
+          <!-- Scrolling Background: Pulled up behind text -->
+          <div class="relative shadow-glow-bottom rounded-xl">
+            <div
+              class="h-400 overflow-y-auto no-scrollbar rounded-xl backdrop-blur-md"
+            >
+              <div
+                class="w-full bg-repeat-y bg-full-width bg-top"
+                style="
+                  background-image: url(&quot;assets/images/portfolio-gallery.png&quot;);
+                  height: 300%;
+                "
+              ></div>
+            </div>
           </div>
         </div>
       </section>
