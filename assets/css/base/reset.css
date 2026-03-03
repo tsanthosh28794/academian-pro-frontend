@@ -1,5 +1,4 @@
-/* Fontshare: General Sans */
-@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap');
+ 
 
 *,
 *::before,
@@ -11,10 +10,15 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: 'General Sans', sans-serif;
+  font-family: var(--font-secondary);
   background: var(--bg-dark);
   color: #fff;
   line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  margin: 0;
 }
 
 a {

@@ -1,122 +1,143 @@
 
 .hero {
   position: relative;
-  background: var(--bg-dark);
-  padding: 80px 0 60px;
+  background: var(--black);
+  /* padding: 120px 0 100px; */
   text-align: center;
   overflow: hidden;
 }
 
-/* The "V" Background Accent - Two diagonal rays from top corners */
-.hero::before,
-.hero::after {
+/* Purple V-Background */
+.hero::before {
   content: '';
   position: absolute;
   top: 0;
-  width: 50%;
-  height: 500px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: var(--electric-blue);
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 50% 100%, 0 60%);
   z-index: 0;
 }
 
-.hero::before {
+/* Yellow Stripe (Left side of V) */
+.hero-v-stripe-left {
+  position: absolute;
+  top: 0;
   left: 0;
-  background: linear-gradient(160deg, var(--yellow) 0%, transparent 50%);
+  width: 100%;
+  height: 420px;
+  background: var(--yellow);
+  clip-path: polygon(0 58%, 50% 98%, 50% 100%, 0 60%);
+  z-index: 1;
 }
 
-.hero::after {
-  right: 0;
-  background: linear-gradient(-160deg, var(--pink) 0%, transparent 50%);
+/* Pink Stripe (Right side of V) */
+.hero-v-stripe-right {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 420px;
+  background: var(--pink);
+  clip-path: polygon(100% 58%, 50% 98%, 50% 100%, 100% 60%);
+  z-index: 1;
 }
 
 @media(min-width: 1024px) {
-  .hero::before,
-  .hero::after {
-    height: 700px;
-  }
+  .hero::before { height: 500px; }
+  .hero-v-stripe-left, .hero-v-stripe-right { height: 520px; }
+  .hero::before { clip-path: polygon(0 0, 100% 0, 100% 65%, 50% 100%, 0 65%); }
+  .hero-v-stripe-left { clip-path: polygon(0 63%, 50% 98%, 50% 100%, 0 65%); }
+  .hero-v-stripe-right { clip-path: polygon(100% 63%, 50% 98%, 50% 100%, 100% 65%); }
 }
 
 .hero-wrapper {
   position: relative;
-  z-index: 2;
+  z-index: 5;
 }
 
 .hero-content h1 {
   font-size: var(--fs-h1);
   font-weight: 700;
+  color: var(--white);
   margin-bottom: var(--space-md);
   line-height: 1.1;
-  max-width: 700px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .hero-content p {
   font-size: var(--fs-body);
-  color: #ddd;
+  color: rgba(255, 255, 255, 0.9);
   margin-bottom: var(--space-lg);
-  max-width: 550px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .hero-actions {
-  margin-bottom: var(--space-lg);
+  margin-bottom: 60px;
 }
 
-/* Hero Visual with purple frame */
+/* Hero Visual positioned at the vertex */
 .hero-visual {
   position: relative;
-  margin: 40px auto;
-  width: 240px;
-  height: 280px;
+  margin: 0 auto;
+  width: 280px;
+  height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
 }
 
 @media(min-width: 1024px) {
   .hero-visual {
-    width: 340px;
-    height: 400px;
+    width: 400px;
+    height: 480px;
+    margin-top: -20px; /* Pull it slightly up into the V */
   }
 }
 
 .hero-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 24px;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain; /* Don't crop the UI/Illustration */
   position: relative;
   z-index: 2;
-  border: 4px solid var(--navy);
-  box-shadow: 0 0 40px rgba(63, 72, 245, 0.4), 0 0 80px rgba(63, 72, 245, 0.15);
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.5));
 }
 
-/* Floating Icons - Scattered ring around hero image */
+/* Floating Icons - Adjust positions relative to the new visual layout */
 .floating-icon {
   position: absolute;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   z-index: 3;
-  transition: transform 0.3s cubic-bezier(.175, .885, .32, 1.275);
+  transition: transform 0.3s var(--transition);
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
 }
 
 .floating-icon:hover {
-  transform: scale(1.3);
+  transform: scale(1.2);
 }
 
-/* Positioned around the hero image */
-.icon-1 { top: 5%;  left: -20%; }
-.icon-2 { top: 35%; left: -30%; }
-.icon-3 { bottom: 15%; left: -15%; }
-.icon-4 { top: 0;   right: -15%; }
-.icon-5 { top: 40%; right: -25%; }
-.icon-6 { bottom: 10%; right: -10%; }
+.icon-1 { top: 0%; left: -10%; }
+.icon-2 { top: 30%; left: -25%; }
+.icon-3 { bottom: 20%; left: -15%; }
+.icon-4 { top: 5%; right: -15%; }
+.icon-5 { top: 35%; right: -25%; }
+.icon-6 { bottom: 15%; right: -10%; }
 
 @media(min-width: 1024px) {
-  .floating-icon { width: 52px; height: 52px; }
-  .icon-1 { left: -30%; }
-  .icon-2 { left: -40%; }
-  .icon-3 { left: -25%; }
-  .icon-4 { right: -25%; }
-  .icon-5 { right: -35%; }
-  .icon-6 { right: -20%; }
+  .floating-icon { width: 56px; height: 56px; }
+  .icon-1 { top: -5%; left: -15%; }
+  .icon-2 { top: 25%; left: -35%; }
+  .icon-3 { bottom: 15%; left: -20%; }
+  .icon-4 { top: 0%; right: -15%; }
+  .icon-5 { top: 35%; right: -30%; }
+  .icon-6 { bottom: 10%; right: -15%; }
 }

@@ -1,5 +1,8 @@
 :root {
 
+  --font-primary: 'Poppins', sans-serif;
+  --font-secondary: 'Inter', sans-serif;
+
   --container: 1200px;
 
   /* Colors from Design */
