@@ -7,43 +7,62 @@
 }
 
 .nav-menu {
-  display: none;
-  list-style: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 80%;
+  max-width: 300px;
+  height: 100vh;
+  background: #111;
+  padding: var(--space-xl) var(--space-lg);
+  display: flex;
+  flex-direction: column;
   gap: var(--space-lg);
+  transition: right 0.4s cubic-bezier(.4,0,.2,1);
+  z-index: var(--z-mega);
+  list-style: none;
 }
 
 .nav-menu.active {
-  display: flex;
-  flex-direction: column;
+  right: 0;
 }
 
 @media(min-width:1024px) {
   .nav-menu {
-    display: flex;
+    position: static;
     flex-direction: row;
+    height: auto;
+    width: auto;
+    max-width: none;
+    background: transparent;
+    padding: 0;
+    transition: none;
+    display: flex;
   }
 }
 
-.mega-menu {
-  position: absolute;
-  left: 0;
-  top: 100%;
-  width: 100vw;
-  background: #111;
-  padding: var(--space-xl) 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition);
-  z-index: var(--z-mega);
+/* Scroll Snap Utilities */
+.scroll-x {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: var(--space-md);
+  padding-bottom: var(--space-md);
+  scrollbar-width: none; /* Hide scrollbar for Chrome/Safari below */
 }
 
-.has-mega:hover .mega-menu {
-  opacity: 1;
-  visibility: visible;
+.scroll-x::-webkit-scrollbar {
+  display: none;
 }
 
-.mega-inner {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: var(--space-lg);
+.snap-item {
+  flex: 0 0 85%;
+  scroll-snap-align: center;
+}
+
+@media(min-width:768px) {
+  .snap-item {
+    flex: 1;
+    scroll-snap-align: none;
+  }
 }

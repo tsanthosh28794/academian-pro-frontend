@@ -1,0 +1,220 @@
+
+.section {
+  padding: 60px 0;
+}
+
+.section-title {
+  font-size: var(--fs-h2);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: var(--fs-body);
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+}
+
+/* Pod Cards */
+.pod-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: var(--space-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  color: var(--black);
+  text-align: left;
+}
+
+.pod-card h3 {
+  font-size: 18px;
+  margin: var(--space-sm) 0;
+  line-height: 1.3;
+}
+
+.pod-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.pod-author-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #eee;
+  flex-shrink: 0;
+}
+
+.pod-author-info h4 {
+  font-size: 14px;
+  margin: 0;
+  color: var(--black);
+}
+
+.pod-author-info span {
+  font-size: 12px;
+  color: var(--grey);
+}
+
+.pod-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.pod-badge--active { background: var(--blue); color: var(--white); }
+.pod-badge--review { background: var(--navy); color: var(--white); }
+.pod-badge--draft { background: var(--grey); color: var(--white); }
+
+/* Process Blocks */
+.process-block {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.process-visual {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto var(--space-lg);
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Feature Cards */
+.feature-card {
+  border-radius: 20px;
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  color: #fff;
+}
+
+.feature-card--pink { background: var(--accent-pink); }
+.feature-card--blue { background: var(--accent-blue); }
+.feature-card--yellow { background: var(--accent-yellow); color: #000; }
+.feature-card--dark { background: #111; }
+
+.feature-card img {
+  width: 60px;
+  height: 60px;
+}
+
+/* Radial Feature Graphic */
+.radial-visual {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radial-center {
+  width: 60px;
+  height: 60px;
+  background: var(--blue);
+  border-radius: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 30px var(--blue);
+}
+
+.radial-item {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: var(--bg-card);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.radial-item img {
+  width: 24px;
+  height: 24px;
+}
+
+.radial-item--top { top: 0; left: 50%; transform: translateX(-50%); background: var(--lime); }
+.radial-item--right { top: 50%; right: 0; transform: translateY(-50%); background: var(--mint); }
+.radial-item--bottom { bottom: 0; left: 50%; transform: translateX(-50%); background: var(--sky-blue); }
+.radial-item--left { top: 50%; left: 0; transform: translateY(-50%); background: var(--blue); }
+
+/* Indicators */
+.indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--space-lg);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+}
+
+.dot.active {
+  background: var(--accent-pink);
+}
+
+/* Download Section */
+.download-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+@media(min-width: 1024px) {
+  .download-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.store-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.store-buttons img {
+  height: 40px;
+  width: auto;
+}
+
+/* Footer */
+.footer {
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}

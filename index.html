@@ -9,44 +9,42 @@
 </head>
 <body>
 
+<a href="#mainContent" class="skip-link">Skip to content</a>
+
 <header class="header">
   <div class="container nav">
 
     <div class="logo">academian</div>
 
-    <button class="nav-toggle" id="navToggle">☰</button>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">☰</button>
 
     <ul class="nav-menu" id="navMenu">
       <li class="nav-item has-mega">
-        <a href="#">Pods</a>
+        <button class="mega-trigger" aria-expanded="false" aria-haspopup="true">Pods</button>
 
         <div class="mega-menu">
           <div class="container mega-inner">
-
             <div class="mega-col">
               <h4>Learning</h4>
               <a href="#">Understanding</a>
               <a href="#">Discovery</a>
             </div>
-
             <div class="mega-col">
               <h4>Community</h4>
               <a href="#">Mentorship</a>
               <a href="#">Groups</a>
             </div>
-
             <div class="mega-col">
               <h4>Resources</h4>
               <a href="#">Articles</a>
               <a href="#">Tools</a>
             </div>
-
           </div>
         </div>
-
       </li>
       <li><a href="#">Process</a></li>
       <li><a href="#">Download</a></li>
+      <li><a href="#" class="btn btn-outline">Launching Soon</a></li>
     </ul>
 
   </div>
@@ -54,20 +52,253 @@
 
 <div class="overlay" id="overlay"></div>
 
-<main>
+<main id="mainContent">
+  <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-wrapper">
       <div class="hero-content">
-        <h1>Simplify Learning Experiences</h1>
-        <p>Learn collaboratively through learning pods.</p>
-        <a href="#" class="btn btn-outline">Launching Soon</a>
+        <h1>Simplify Learning Experiences with Learning Pods</h1>
+        <p>Explore our platform. Connect with your learning community. Curate a better world, one byte of knowledge at a time.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-outline">Launching Soon</a>
+        </div>
       </div>
+      
       <div class="hero-visual">
-        <img src="assets/images/hero-banner.png" alt="Academian Hero Banner">
+        <!-- Floating Icons based on XD -->
+        <img src="assets/images/abstract-pattern-sm.svg" class="floating-icon icon-1" alt="">
+        <img src="assets/images/feature-highlights-graphic.svg" class="floating-icon icon-2" alt="">
+        <img src="assets/images/abstract-pattern-md.svg" class="floating-icon icon-3" alt="">
+        <img src="assets/images/abstract-pattern-lg.svg" class="floating-icon icon-4" alt="">
+        <img src="assets/images/decorative-abstract-shapes.svg" class="floating-icon icon-5" alt="">
+        <img src="assets/images/icon-more.svg" class="floating-icon icon-6" alt="">
+        
+        <img src="assets/images/hero-banner.png" class="hero-image" alt="Collaborative learning illustration">
       </div>
     </div>
   </section>
+
+  <!-- Intro Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">What are Learning Pods?</h2>
+      <p class="section-subtitle">Learning Pods started out with a goal to reimagine how we learn, share expertise, connect with one another as a community and explore a myriad of opportunities.</p>
+      
+      <!-- Pods Carousel/Grid -->
+      <div class="scroll-x">
+        <div class="snap-item pod-card">
+          <div class="pod-card__header">
+            <div class="pod-author-img"></div>
+            <div class="pod-author-info">
+              <h4>John Smith</h4>
+              <span>@johnsmith</span>
+            </div>
+          </div>
+          <h3>Learning Path on Understanding the...</h3>
+          <span class="pod-badge pod-badge--review">In review</span>
+        </div>
+        <div class="snap-item pod-card">
+          <div class="pod-card__header">
+            <div class="pod-author-img"></div>
+            <div class="pod-author-info">
+              <h4>Jane Doe</h4>
+              <span>@janedoe</span>
+            </div>
+          </div>
+          <h3>Discovery of Collaborative Growth</h3>
+          <span class="pod-badge pod-badge--active">Active</span>
+        </div>
+        <div class="snap-item pod-card">
+          <div class="pod-card__header">
+            <div class="pod-author-img"></div>
+            <div class="pod-author-info">
+              <h4>Alex Wong</h4>
+              <span>@alexw</span>
+            </div>
+          </div>
+          <h3>The Bright Future of Global Education</h3>
+          <span class="pod-badge pod-badge--draft">Draft</span>
+        </div>
+        <div class="snap-item pod-card">
+          <div class="pod-card__header">
+            <div class="pod-author-img"></div>
+            <div class="pod-author-info">
+              <h4>Sarah Lee</h4>
+              <span>@slee</span>
+            </div>
+          </div>
+          <h3>Maximizing Mentorship Impact</h3>
+          <span class="pod-badge pod-badge--review">In review</span>
+        </div>
+        <div class="snap-item pod-card">
+          <div class="pod-card__header">
+            <div class="pod-author-img"></div>
+            <div class="pod-author-info">
+              <h4>Tom Brown</h4>
+              <span>@tbrown</span>
+            </div>
+          </div>
+          <h3>Dynamic Learning Groups Guide</h3>
+          <span class="pod-badge pod-badge--active">Active</span>
+        </div>
+        <div class="snap-item pod-card">
+          <div class="pod-card__header">
+            <div class="pod-author-img"></div>
+            <div class="pod-author-info">
+              <h4>Emily Chen</h4>
+              <span>@emchen</span>
+            </div>
+          </div>
+          <h3>Open Educational Resource Strategy</h3>
+          <span class="pod-badge pod-badge--draft">Draft</span>
+        </div>
+        <div class="snap-item pod-card">
+          <div class="pod-card__header">
+            <div class="pod-author-img"></div>
+            <div class="pod-author-info">
+              <h4>Michael Scott</h4>
+              <span>@mscott</span>
+            </div>
+          </div>
+          <h3>Managing Collaborative Pods</h3>
+          <span class="pod-badge pod-badge--review">In review</span>
+        </div>
+        <div class="snap-item pod-card">
+          <div class="pod-card__header">
+            <div class="pod-author-img"></div>
+            <div class="pod-author-info">
+              <h4>Lisa Ray</h4>
+              <span>@lray</span>
+            </div>
+          </div>
+          <h3>Future of Byte-sized Knowledge</h3>
+          <span class="pod-badge pod-badge--active">Active</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore Process -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Explore a new learning process</h2>
+      <p class="section-subtitle">Empower a transformative journey of discovery and collaboration.</p>
+      
+      <div class="process-block">
+        <div class="process-visual">
+          <img src="assets/images/icon-box-yellow.svg" alt="">
+        </div>
+        <h3>Create & Curate</h3>
+        <p>Use open educational materials to create micro lessons on the fly. Be an engagement champion by combining your pods with a wide range of learning tools.</p>
+      </div>
+
+      <div class="process-block">
+        <div class="process-visual">
+          <img src="assets/images/icon-box-pink.svg" alt="">
+        </div>
+        <h3>Showcase your pods</h3>
+        <p>Share your pods with your friends and let it reach the largest possible community and build an ever-lasting learning experience.</p>
+      </div>
+
+      <div class="process-block">
+        <div class="process-visual">
+          <img src="assets/images/icon-box-blue.svg" alt="">
+        </div>
+        <h3>Stay in the loop</h3>
+        <p>Get perspectives from various dimensions, share your insights and collaborate to enhance your knowledge with the world, becoming shared effectively when done collaboratively.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Learning Game -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Improve your social learning game</h2>
+      <p class="section-subtitle">Enhance your social learning prowess with Pods, where connecting and growing together is at the heart of our mission.</p>
+      
+      <div class="radial-visual">
+        <div class="radial-center">
+          <img src="assets/images/abstract-pattern-sm.svg" alt="">
+        </div>
+        <div class="radial-item radial-item--top">
+          <img src="assets/images/abstract-pattern-md.svg" alt="">
+        </div>
+        <div class="radial-item radial-item--right">
+          <img src="assets/images/abstract-pattern-lg.svg" alt="">
+        </div>
+        <div class="radial-item radial-item--bottom">
+          <img src="assets/images/decorative-abstract-shapes.svg" alt="">
+        </div>
+        <div class="radial-item radial-item--left">
+          <img src="assets/images/icon-more.svg" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Have fun with more -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Have fun with more.</h2>
+      <p class="section-subtitle">Explore social learning interactions with more content. Peek into diverse, interactive pools of learning and stay with entertaining and engaging components of materials at your fingertips.</p>
+      
+      <div class="scroll-x">
+        <div class="snap-item feature-card feature-card--pink">
+          <img src="assets/images/icon-space.svg" alt="">
+          <h3>More Space</h3>
+          <span>→</span>
+        </div>
+        <div class="snap-item feature-card feature-card--blue">
+          <img src="assets/images/icon-process.svg" alt="">
+          <h3>More Process</h3>
+          <span>→</span>
+        </div>
+        <div class="snap-item feature-card feature-card--yellow">
+          <img src="assets/images/icon-materials.svg" alt="">
+          <h3>More Materials</h3>
+          <span>→</span>
+        </div>
+        <div class="snap-item feature-card feature-card--dark">
+          <img src="assets/images/icon-progress.svg" alt="">
+          <h3>More Progress</h3>
+          <p>Some more text related to your journey and progress.</p>
+        </div>
+      </div>
+      
+      <div class="indicators">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Section -->
+  <section class="section">
+    <div class="container">
+      <div class="download-wrapper">
+        <div class="download-content">
+          <h2 class="section-title">Download the app</h2>
+          <p>Unlock a world of limitless learning possibilities. Download the Learning Pods app today.</p>
+          <div class="store-buttons">
+            <img src="assets/images/download-app-store.png" alt="Download on App Store">
+          </div>
+          <a href="#" class="btn btn-outline" style="margin-top: 30px;">Launching Soon</a>
+        </div>
+        <div class="download-visual">
+          <img src="assets/images/portfolio-gallery.png" alt="Mobile App Screenshot">
+        </div>
+      </div>
+    </div>
+  </section>
+
 </main>
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; 2026 Academian. All rights reserved.</p>
+  </div>
+</footer>
 
 <script src="assets/js/main.js"></script>
 </body>

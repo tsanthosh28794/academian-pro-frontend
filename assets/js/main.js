@@ -5,12 +5,32 @@ const overlay = document.getElementById("overlay");
 
 if (navToggle && navMenu && overlay) {
   navToggle.addEventListener("click", () => {
+    const isExpanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", !isExpanded);
     navMenu.classList.toggle("active");
     overlay.classList.toggle("active");
   });
 
-  overlay.addEventListener("click", () => {
-    navMenu.classList.remove("active");
-    overlay.classList.remove("active");
+  overlay.addEventListener("click", closeMenu);
+}
+
+const megaTrigger = document.querySelector(".mega-trigger");
+if (megaTrigger) {
+  megaTrigger.addEventListener("click", () => {
+    const isExpanded = megaTrigger.getAttribute("aria-expanded") === "true";
+    megaTrigger.setAttribute("aria-expanded", !isExpanded);
   });
 }
+
+function closeMenu() {
+  if (navMenu && navMenu.classList.contains("active")) {
+    navMenu.classList.remove("active");
+    overlay.classList.remove("active");
+    navToggle.setAttribute("aria-expanded", "false");
+  }
+}
+
+// Close on Escape
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeMenu();
+});

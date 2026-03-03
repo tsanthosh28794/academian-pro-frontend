@@ -2,16 +2,52 @@
 
   --container: 1200px;
 
+  /* Colors from Design */
+  --black: #000000;
+  --white: #FFFFFF;
+  --yellow: #FFE115;
+  --pink: #FF579B;
+  --light-blue: #4BBDF5;
+  --navy: #0A0C6E;
+  --blue: #004CDD;
+  --cyan: #43F1FF;
+  --dark-grey: #0D0D0D;
+  --grey: #747474;
+  --dark-pink: #E51777;
+  --sky-blue: #22B6FF;
+  --electric-blue: #3F48F5;
+  --turquoise: #19D0F8;
+  --bright-blue: #005DFF;
+  --lime: #D4FF6A;
+  --mint: #00E9B8;
+
+  /* Semantic Mappings */
+  --bg-dark: var(--black);
+  --bg-card: var(--dark-grey);
+  --accent-pink: var(--pink);
+  --accent-yellow: var(--yellow);
+  --accent-blue: var(--electric-blue);
+  --text-muted: var(--grey);
+
+  /* Fluid Typography */
+  --fs-h1: clamp(1.75rem, 8vw, 3.5rem);
+  --fs-h2: clamp(1.5rem, 6vw, 2.5rem);
+  --fs-body: clamp(0.875rem, 4vw, 1.125rem);
+
+  /* Spacing */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 32px;
   --space-xl: 64px;
 
+  /* Z-index */
   --z-header: 1000;
   --z-mega: 1100;
   --z-overlay: 900;
 
-  --transition: all 0.3s ease;
+  /* Animation & Scroll */
+  --transition: all 0.3s cubic-bezier(.4,0,.2,1);
+  --scroll-padding: 20px;
 
 }
