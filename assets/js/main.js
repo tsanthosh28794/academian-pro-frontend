@@ -1,4 +1,3 @@
-
 const navToggle = document.getElementById("navToggle");
 const navMenu = document.getElementById("navMenu");
 const overlay = document.getElementById("overlay");
@@ -17,13 +16,13 @@ if (navToggle && navMenu && overlay) {
 // Mega menu toggles
 const megaTriggers = document.querySelectorAll(".mega-trigger");
 if (megaTriggers.length > 0) {
-  megaTriggers.forEach(trigger => {
+  megaTriggers.forEach((trigger) => {
     trigger.addEventListener("click", (e) => {
       e.stopPropagation();
       const isExpanded = trigger.getAttribute("aria-expanded") === "true";
-      
+
       // Close all other mega menus first
-      megaTriggers.forEach(other => {
+      megaTriggers.forEach((other) => {
         if (other !== trigger) other.setAttribute("aria-expanded", "false");
       });
 
@@ -39,7 +38,9 @@ function closeMenu() {
     navToggle.setAttribute("aria-expanded", "false");
   }
   // Also close all mega menus
-  megaTriggers.forEach(trigger => trigger.setAttribute("aria-expanded", "false"));
+  megaTriggers.forEach((trigger) =>
+    trigger.setAttribute("aria-expanded", "false"),
+  );
 }
 
 // Close menus on Escape
@@ -50,7 +51,9 @@ document.addEventListener("keydown", (e) => {
 // Close mega menu when clicking outside
 document.addEventListener("click", (e) => {
   if (!e.target.closest(".has-mega")) {
-    megaTriggers.forEach(trigger => trigger.setAttribute("aria-expanded", "false"));
+    megaTriggers.forEach((trigger) =>
+      trigger.setAttribute("aria-expanded", "false"),
+    );
   }
 });
 
@@ -58,6 +61,7 @@ document.addEventListener("click", (e) => {
 (function () {
   const track = document.getElementById("processTrack");
   if (!track) return;
+  const carousel = track.parentElement;
 
   const dots = document.querySelectorAll(".process-dot");
   const totalOriginal = 3;
@@ -73,16 +77,28 @@ document.addEventListener("click", (e) => {
     return width + marginLeft + marginRight;
   }
 
-  // No clones for non-infinite carousel
+  // Clone slides for infinite loop: [...clones, ...originals, ...clones]
+  const originals = Array.from(track.children);
+  originals.forEach((s) => {
+    const cloneBefore = s.cloneNode(true);
+    const cloneAfter = s.cloneNode(true);
+    cloneBefore.classList.add("clone");
+    cloneAfter.classList.add("clone");
+    track.insertBefore(cloneBefore, track.firstChild);
+    track.appendChild(cloneAfter);
+  });
+
   const allSlides = Array.from(track.children);
-  const totalSlides = allSlides.length;
-  let currentIndex = 0;
+  let currentIndex = totalOriginal;
   let isTransitioning = false;
+  let autoPlay = null;
+  let touchStartX = 0;
+  let touchMoveX = 0;
 
   function getOffset(idx) {
     const slideW = getSlideWidth();
     const containerW = track.parentElement.offsetWidth;
-    return -(idx * slideW) + (containerW / 2) - (slideW / 2);
+    return -(idx * slideW) + containerW / 2 - slideW / 2;
   }
 
   function updateClasses() {
@@ -95,13 +111,18 @@ document.addEventListener("click", (e) => {
       }
     });
 
-    dots.forEach((d, i) => d.classList.toggle("active", i === currentIndex));
+    const realIdx =
+      (((currentIndex - totalOriginal) % totalOriginal) + totalOriginal) %
+      totalOriginal;
+    dots.forEach((d, i) => d.classList.toggle("active", i === realIdx));
   }
 
   function goTo(idx, smooth = true) {
-    if (isTransitioning || idx < 0 || idx >= totalSlides) return;
+    if (isTransitioning) return;
     currentIndex = idx;
-    track.style.transition = smooth ? "transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)" : "none";
+    track.style.transition = smooth
+      ? "transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)"
+      : "none";
     track.style.transform = `translateX(${getOffset(currentIndex)}px)`;
     updateClasses();
 
@@ -109,18 +130,23 @@ document.addEventListener("click", (e) => {
       isTransitioning = true;
       setTimeout(() => {
         isTransitioning = false;
+        // Jump back/forward for infinite effect
+        if (currentIndex >= totalOriginal * 2) {
+          currentIndex = currentIndex - totalOriginal;
+          track.style.transition = "none";
+          track.style.transform = `translateX(${getOffset(currentIndex)}px)`;
+        } else if (currentIndex < totalOriginal) {
+          currentIndex = currentIndex + totalOriginal;
+          track.style.transition = "none";
+          track.style.transform = `translateX(${getOffset(currentIndex)}px)`;
+        }
         updateClasses();
       }, 720);
     }
   }
 
   function next() {
-    if (currentIndex < totalSlides - 1) {
-      goTo(currentIndex + 1);
-    } else {
-      // Stop at end, or stay at last slide.
-      // clearInterval(autoPlay); // Optionally stop auto-play as well
-    }
+    goTo(currentIndex + 1);
   }
 
   // Handle Resize
@@ -149,29 +175,35 @@ document.addEventListener("click", (e) => {
   });
 
   // Touch Support
-  let touchStartX = 0;
-  let touchMoveX = 0;
 
-  carousel.addEventListener("touchstart", (e) => {
-    touchStartX = e.touches[0].clientX;
-    clearInterval(autoPlay);
-  }, { passive: true });
+  carousel.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.touches[0].clientX;
+      clearInterval(autoPlay);
+    },
+    { passive: true },
+  );
 
-  carousel.addEventListener("touchmove", (e) => {
-    touchMoveX = e.touches[0].clientX;
-  }, { passive: true });
+  carousel.addEventListener(
+    "touchmove",
+    (e) => {
+      touchMoveX = e.touches[0].clientX;
+    },
+    { passive: true },
+  );
 
   carousel.addEventListener("touchend", () => {
     const diff = touchStartX - touchMoveX;
     if (Math.abs(diff) > 50) {
       if (diff > 0) next();
-      else goTo(currentIndex - 1);
+      else if (currentIndex > 0) goTo(currentIndex - 1);
     }
     autoPlay = setInterval(next, 5000);
   });
 
   // Auto-play
-  let autoPlay = setInterval(next, 5000);
+  autoPlay = setInterval(next, 5000);
 
   if (carousel) {
     carousel.addEventListener("mouseenter", () => clearInterval(autoPlay));
@@ -183,28 +215,30 @@ document.addEventListener("click", (e) => {
 })();
 
 // Feature Grid Dots Sync (Mobile)
-(function() {
-  const grid = document.querySelector('.features-grid');
-  const dots = document.querySelectorAll('.indicators .dot');
-  if(!grid || dots.length === 0) return;
+(function () {
+  const grid = document.querySelector(".features-grid");
+  const dots = document.querySelectorAll(".indicators .dot");
+  if (!grid || dots.length === 0) return;
 
-  grid.addEventListener('scroll', () => {
+  grid.addEventListener("scroll", () => {
     const scrollLeft = grid.scrollLeft;
     const width = grid.offsetWidth;
     const index = Math.round(scrollLeft / width);
-    
+
     dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
+      dot.classList.toggle("active", i === index);
     });
   });
 
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-      const cardWidth = grid.querySelector('.feature-card').offsetWidth + 20; // width + gap
-      grid.scrollTo({
-        left: i * cardWidth,
-        behavior: 'smooth'
-      });
+    dot.addEventListener("click", () => {
+      const cards = grid.querySelectorAll(".feature-card");
+      if (cards[i]) {
+        grid.scrollTo({
+          left: cards[i].offsetLeft - 20,
+          behavior: "smooth",
+        });
+      }
     });
   });
 })();

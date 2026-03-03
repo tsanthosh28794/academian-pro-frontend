@@ -1,5 +1,5 @@
 .section {
-  padding: var(--space-md) 0;
+  padding: var(--space-md) 0 var(--space-lg);
 }
 
 .section-title {
@@ -213,6 +213,7 @@
 @media (max-width: 1023px) {
   .features-grid {
     display: flex;
+    flex-wrap: nowrap;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -636,4 +637,21 @@
   text-align: center;
   font-size: 0.875rem;
   color: var(--text-muted);
+}
+
+/* ============================
+   Intro Section - Scrolling Background
+   ============================ */
+.intro-bg {
+  background-image: url("../../images/portfolio-gallery.png");
+  height: 200%;
+  background-repeat: repeat;
+}
+
+@media (max-width: 768px) {
+  .intro-bg {
+    background-size: contain !important;
+    height: 400px;
+    background-repeat: no-repeat;
+  }
 }
