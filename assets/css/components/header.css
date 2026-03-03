@@ -28,13 +28,15 @@
 /* Mega Menu - hidden by default */
 .mega-menu {
   display: none;
-  position: absolute;
+  position: fixed; /* Fixed to cover full viewport width */
   left: 0;
-  top: 100%;
+  top: 72px; /* Adjusted based on header height */
   width: 100vw;
-  background: #111;
-  padding: var(--space-xl) var(--space-lg);
+  background: rgba(10, 10, 10, 0.98);
+  backdrop-filter: blur(10px);
+  padding: var(--space-xl) 0;
   z-index: var(--z-mega);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mega-trigger {
@@ -44,10 +46,62 @@
   font-size: inherit;
   cursor: pointer;
   padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+
+.mega-trigger .chevron {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.3s ease;
+  background-color: currentColor;
+  -webkit-mask-image: url("../images/chevron-down.svg");
+  mask-image: url("../images/chevron-down.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  display: inline-block;
+  opacity: 0.7;
+  object-position: -9999px; /* Hide original img source */
+}
+
+/* Hover/Active states */
+@media (min-width: 1024px) {
+  .nav-item.has-mega:hover .mega-menu {
+    display: block;
+    animation: fadeInDown 0.3s ease-out;
+  }
+
+  .nav-item.has-mega:hover .mega-trigger {
+    color: var(--yellow);
+  }
+
+  .nav-item.has-mega:hover .mega-trigger .chevron {
+    transform: rotate(180deg);
+    opacity: 1;
+  }
 }
 
 .mega-trigger[aria-expanded="true"] + .mega-menu {
   display: block;
+}
+
+.mega-trigger[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .mega-inner {
