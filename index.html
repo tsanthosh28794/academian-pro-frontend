@@ -23,31 +23,39 @@
 
     <ul class="nav-menu" id="navMenu">
       <li class="nav-item has-mega">
-        <button class="mega-trigger" aria-expanded="false" aria-haspopup="true">Pods</button>
+        <button class="mega-trigger" aria-expanded="false" aria-haspopup="true">Services</button>
 
         <div class="mega-menu">
           <div class="container mega-inner">
             <div class="mega-col">
-              <h4>Learning</h4>
+              <h4>Product</h4>
               <a href="#">Understanding</a>
               <a href="#">Discovery</a>
             </div>
             <div class="mega-col">
-              <h4>Community</h4>
+              <h4>Carrier</h4>
               <a href="#">Mentorship</a>
               <a href="#">Groups</a>
             </div>
             <div class="mega-col">
-              <h4>Resources</h4>
+              <h4>Insider</h4>
               <a href="#">Articles</a>
               <a href="#">Tools</a>
             </div>
           </div>
         </div>
       </li>
-      <li><a href="#">Process</a></li>
-      <li><a href="#">Download</a></li>
-      <li><a href="#" class="btn btn-outline">Launching Soon</a></li>
+      <li class="nav-item has-mega">
+        <button class="mega-trigger" aria-expanded="false" aria-haspopup="true">Product</button>
+      </li> 
+      <li class="nav-item has-mega">
+        <button class="mega-trigger" aria-expanded="false" aria-haspopup="true">Careers</button>
+      </li>
+      <li class="nav-item has-mega">
+        <button class="mega-trigger" aria-expanded="false" aria-haspopup="true">Insider</button>
+      </li>
+      <li><a href="#">About</a></li>
+      <li><a href="#" class="btn btn-white py-xs">Contact</a></li>
     </ul>
 
   </div>
@@ -57,24 +65,33 @@
 
 <main id="mainContent">
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-v-stripe-left"></div>
-    <div class="hero-v-stripe-right"></div>
+  <section class="hero py-lg">
+    <div class="hero-v-stripe-pink"></div>
+    <div class="hero-v-stripe-yellow"></div>
     <div class="container hero-wrapper">
       <div class="hero-content">
         <h1>Simplify Learning Experiences with Learning Pods</h1>
         <p>Explore our platform. Connect with your learning community. Curate a better world, one byte of knowledge at a time.</p>
-        <!-- <div class="hero-actions">
-          <a href="#" class="btn btn-outline">Launching Soon</a>
-        </div> -->
+        
       </div>
       
       <div class="hero-visual">
-        <!-- Floating Icons based on XD -->
         <img src="assets/images/abstract-pattern-sm.svg" class="floating-icon icon-1" alt=""> 
-        <img src="assets/images/abstract-pattern-md.svg" class="floating-icon icon-3" alt="">  
+        <img src="assets/images/abstract-pattern-md.svg" class="floating-icon icon-2" alt=""> 
+        <img src="assets/images/abstract-pattern-sm.svg" class="floating-icon icon-3" alt=""> 
+        <img src="assets/images/abstract-pattern-md.svg" class="floating-icon icon-4" alt=""> 
+        <img src="assets/images/abstract-pattern-sm.svg" class="floating-icon icon-5" alt=""> 
+        <img src="assets/images/abstract-pattern-md.svg" class="floating-icon icon-6" alt=""> 
         <img src="assets/images/hero-banner.png" class="hero-image" alt="Collaborative learning illustration">
       </div>
+
+      <div class="hero-actions mt-lg">
+          <a href="#" class="btn btn-white py-xs">Download</a>
+          <a href="#" class="btn btn-outline">
+            Signup
+            <img src="assets/images/arrow-right.svg" class="text-white hover:text-black" width="16" height="16" alt="Arrow Right">
+          </a>
+        </div>
     </div>
   </section>
 
@@ -82,7 +99,7 @@
   <section class="section">
     <div class="container">
       <h2 class="section-title">What are Learning Pods?</h2>
-      <p class="section-subtitle">Learning Pods started out with a goal to reimagine how we learn, share expertise, connect with one another as a community and explore a myriad of opportunities.</p>
+      <p class="section-subtitle mb-xs">Learning Pods started out with a goal to reimagine how we learn, share expertise, connect with one another as a community and explore a myriad of opportunities.</p>
       
       <!-- Pods Carousel/Grid -->
      <div class="">
@@ -97,28 +114,30 @@
       <h2 class="section-title">Explore a new learning process</h2>
       <p class="section-subtitle">Empower a transformative journey of discovery and collaboration.</p>
       
-      <div class="process-block">
-        <div class="process-visual">
-          <img src="assets/images/icon-box-yellow.svg" alt="">
+      <div class="process-grid">
+        <div class="process-block process-block--yellow">
+          <div class="process-visual">
+            <img src="assets/images/icon-box-yellow.svg" alt="">
+          </div>
+          <h3>Create & Curate</h3>
+          <p>Use open educational materials to create micro lessons on the fly. Be an engagement champion by combining your pods with a wide range of learning tools.</p>
         </div>
-        <h3>Create & Curate</h3>
-        <p>Use open educational materials to create micro lessons on the fly. Be an engagement champion by combining your pods with a wide range of learning tools.</p>
-      </div>
 
-      <div class="process-block">
-        <div class="process-visual">
-          <img src="assets/images/icon-box-pink.svg" alt="">
+        <div class="process-block process-block--pink">
+          <div class="process-visual">
+            <img src="assets/images/icon-box-pink.svg" alt="">
+          </div>
+          <h3>Showcase your pods</h3>
+          <p>Share your pods with your friends and let it reach the largest possible community and build an ever-lasting learning experience.</p>
         </div>
-        <h3>Showcase your pods</h3>
-        <p>Share your pods with your friends and let it reach the largest possible community and build an ever-lasting learning experience.</p>
-      </div>
 
-      <div class="process-block">
-        <div class="process-visual">
-          <img src="assets/images/icon-box-blue.svg" alt="">
+        <div class="process-block process-block--blue">
+          <div class="process-visual">
+            <img src="assets/images/icon-box-blue.svg" alt="">
+          </div>
+          <h3>Stay in the loop</h3>
+          <p>Get perspectives from various dimensions, share your insights and collaborate to enhance your knowledge with the world, becoming shared effectively when done collaboratively.</p>
         </div>
-        <h3>Stay in the loop</h3>
-        <p>Get perspectives from various dimensions, share your insights and collaborate to enhance your knowledge with the world, becoming shared effectively when done collaboratively.</p>
       </div>
     </div>
   </section>
@@ -141,26 +160,26 @@
       <h2 class="section-title">Have fun with more.</h2>
       <p class="section-subtitle">Explore social learning interactions with more content. Peek into diverse, interactive pools of learning and stay with entertaining and engaging components of materials at your fingertips.</p>
       
-      <div class="scroll-x features-row">
-        <div class="snap-item feature-card feature-card--pink">
+      <div class="features-grid">
+        <div class="feature-card feature-card--pink">
           <img src="assets/images/icon-space.svg" alt="">
           <h3>More Space</h3>
-          <span>→</span>
+          <span class="feature-arrow">→</span>
         </div>
-        <div class="snap-item feature-card feature-card--blue">
+        <div class="feature-card feature-card--blue">
           <img src="assets/images/icon-process.svg" alt="">
           <h3>More Process</h3>
-          <span>→</span>
+          <span class="feature-arrow">→</span>
         </div>
-        <div class="snap-item feature-card feature-card--yellow">
+        <div class="feature-card feature-card--yellow">
           <img src="assets/images/icon-materials.svg" alt="">
           <h3>More Materials</h3>
-          <span>→</span>
+          <span class="feature-arrow">→</span>
         </div>
-        <div class="snap-item feature-card feature-card--dark">
+        <div class="feature-card feature-card--dark">
           <img src="assets/images/icon-progress.svg" alt="">
           <h3>More Progress</h3>
-          <p>Some more text related to your journey and progress.</p>
+          <span class="feature-arrow">→</span>
         </div>
       </div>
       
@@ -172,31 +191,28 @@
     </div>
   </section>
 
-  <!-- Download Section -->
-  <section class="section">
+  
+
+</main>
+
+<footer class="footer"> 
+  <section class="section section--download">
     <div class="container">
       <div class="download-wrapper">
         <div class="download-content">
-          <h2 class="section-title">Download the app</h2>
-          <p>Unlock a world of limitless learning possibilities. Download the Learning Pods app today.</p>
+          <h2 class="section-title text-white">Download the app</h2>
+          <p class="text-white opacity-80">Unlock a world of limitless learning possibilities. Download the Learning Pods app today.</p>
           <div class="store-buttons">
-            <img src="assets/images/download-app-store.png" alt="Download on App Store">
+            <a href="#"><img src="assets/images/app-store-badge.svg" alt="Download on App Store"></a>
+            <a href="#"><img src="assets/images/google-play-badge.svg" alt="Get it on Google Play"></a>
           </div>
-          <a href="#" class="btn btn-outline" style="margin-top: 30px;">Launching Soon</a>
         </div>
         <div class="download-visual">
-          <img src="assets/images/portfolio-gallery.png" alt="Mobile App Screenshot">
+           <img src="assets/images/download-app-store.png" alt="Download App Store">
         </div>
       </div>
     </div>
   </section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <p>&copy; 2026 Academian. All rights reserved.</p>
-  </div>
 </footer>
 
 <script src="assets/js/main.js"></script>

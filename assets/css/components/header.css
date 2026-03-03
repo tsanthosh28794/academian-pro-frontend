@@ -1,9 +1,14 @@
-.header { position: relative; z-index: var(--z-header); }
+.header {
+  position: relative;
+  z-index: var(--z-header);
+}
 
 .logo {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  text-transform: lowercase;
 }
 
 .nav-toggle {
@@ -14,8 +19,10 @@
   cursor: pointer;
 }
 
-@media(min-width:1024px){
-  .nav-toggle { display: none; }
+@media (min-width: 1024px) {
+  .nav-toggle {
+    display: none;
+  }
 }
 
 /* Mega Menu - hidden by default */
@@ -58,7 +65,7 @@
 }
 
 .mega-col h4 {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--grey);
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -67,7 +74,7 @@
 
 .mega-col a {
   padding: var(--space-xs) 0;
-  font-size: 15px;
+  font-size: 0.9375rem;
 }
 
 .mega-col a:hover {
@@ -82,9 +89,9 @@
 
 .btn-outline {
   border: 1px solid #fff;
-  padding: 8px 20px;
+  padding: var(--space-xs) var(--space-md);
   border-radius: 30px;
-  font-size: 14px;
+  font-size: 0.875rem;
   transition: var(--transition);
 }
 
