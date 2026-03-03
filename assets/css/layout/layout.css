@@ -21,6 +21,7 @@
   transition: right 0.4s cubic-bezier(.4,0,.2,1);
   z-index: var(--z-mega);
   list-style: none;
+  margin: 0;
 }
 
 .nav-menu.active {
@@ -38,17 +39,19 @@
     padding: 0;
     transition: none;
     display: flex;
+    align-items: center;
+    gap: var(--space-lg);
   }
 }
 
-/* Scroll Snap Utilities */
+/* Scroll Snap Utilities (Mobile carousel) */
 .scroll-x {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: var(--space-md);
   padding-bottom: var(--space-md);
-  scrollbar-width: none; /* Hide scrollbar for Chrome/Safari below */
+  scrollbar-width: none;
 }
 
 .scroll-x::-webkit-scrollbar {
@@ -60,9 +63,37 @@
   scroll-snap-align: center;
 }
 
-@media(min-width:768px) {
+/* On tablet: 2 columns */
+@media(min-width:600px) {
   .snap-item {
-    flex: 1;
-    scroll-snap-align: none;
+    flex: 0 0 45%;
+  }
+}
+
+/* Pod cards grid on desktop (4 columns as in XD) */
+@media(min-width:1024px) {
+  .pods-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+  .pods-grid .snap-item {
+    flex: none;
+  }
+}
+
+/* Feature cards row on desktop */
+@media(min-width:1024px) {
+  .features-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+  .features-row .snap-item {
+    flex: none;
   }
 }
