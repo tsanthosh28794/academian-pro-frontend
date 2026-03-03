@@ -1,0 +1,103 @@
+/* ================================
+   Base Reset
+================================ */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* ================================
+   Variables
+================================ */
+
+:root {
+    --primary-color: #4F46E5;
+    --text-color: #111827;
+    --container-width: 1200px;
+}
+
+/* ================================
+   Layout
+================================ */
+
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+/* ================================
+   Header
+================================ */
+
+.header {
+    padding: 20px 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav__menu a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* ================================
+   Hero Section
+================================ */
+
+.hero {
+    padding: 60px 0;
+    text-align: center;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* ================================
+   Footer
+================================ */
+
+.footer {
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* ================================
+   Responsive
+================================ */
+
+@media (min-width: 768px) {
+    .hero {
+        text-align: left;
+    }
+}
