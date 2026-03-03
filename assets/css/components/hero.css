@@ -1,0 +1,19 @@
+
+.hero {
+  background: linear-gradient(180deg,#6b4eff,#3a00ff);
+  padding: var(--space-xl) 0;
+  text-align: center;
+}
+
+@media(min-width:1024px){
+  .hero-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .hero h1 {
+    font-size: 52px;
+  }
+}

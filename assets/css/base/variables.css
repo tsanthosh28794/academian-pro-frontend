@@ -1,0 +1,17 @@
+:root {
+
+  --container: 1200px;
+
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+
+  --z-header: 1000;
+  --z-mega: 1100;
+  --z-overlay: 900;
+
+  --transition: all 0.3s ease;
+
+}

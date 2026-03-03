@@ -1,56 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Frontend Developer Test Project" />
-    <title>Frontend Developer Test</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frontend Developer Test Project - Academian Pro">
+    <title>Academian Pro</title>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
 
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="nav__logo">Logo</div>
-                <ul class="nav__menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<header class="header">
+  <div class="container nav">
 
-    <main>
+    <div class="logo">academian</div>
 
-        <section class="hero">
-            <div class="container">
-                <h1 class="hero__title">Hero Title</h1>
-                <p class="hero__subtitle">Hero description goes here.</p>
-                <button class="btn">Get Started</button>
+    <button class="nav-toggle" id="navToggle">☰</button>
+
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item has-mega">
+        <a href="#">Pods</a>
+
+        <div class="mega-menu">
+          <div class="container mega-inner">
+
+            <div class="mega-col">
+              <h4>Learning</h4>
+              <a href="#">Understanding</a>
+              <a href="#">Discovery</a>
             </div>
-        </section>
 
-        <section class="section">
-            <div class="container">
-                <h2 class="section__title">Section Title</h2>
-                <p class="section__description">Section content placeholder.</p>
+            <div class="mega-col">
+              <h4>Community</h4>
+              <a href="#">Mentorship</a>
+              <a href="#">Groups</a>
             </div>
-        </section>
 
-    </main>
+            <div class="mega-col">
+              <h4>Resources</h4>
+              <a href="#">Articles</a>
+              <a href="#">Tools</a>
+            </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Academian Pro</p>
+          </div>
         </div>
-    </footer>
 
-    <script src="assets/js/main.js"></script>
+      </li>
+      <li><a href="#">Process</a></li>
+      <li><a href="#">Download</a></li>
+    </ul>
+
+  </div>
+</header>
+
+<div class="overlay" id="overlay"></div>
+
+<main>
+  <section class="hero">
+    <div class="container hero-wrapper">
+      <div class="hero-content">
+        <h1>Simplify Learning Experiences</h1>
+        <p>Learn collaboratively through learning pods.</p>
+        <a href="#" class="btn btn-outline">Launching Soon</a>
+      </div>
+      <div class="hero-visual">
+        <img src="assets/images/hero-banner.png" alt="Academian Hero Banner">
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="assets/js/main.js"></script>
 </body>
-
 </html>

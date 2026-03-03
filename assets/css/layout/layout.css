@@ -1,0 +1,49 @@
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) 0;
+}
+
+.nav-menu {
+  display: none;
+  list-style: none;
+  gap: var(--space-lg);
+}
+
+.nav-menu.active {
+  display: flex;
+  flex-direction: column;
+}
+
+@media(min-width:1024px) {
+  .nav-menu {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.mega-menu {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100vw;
+  background: #111;
+  padding: var(--space-xl) 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--transition);
+  z-index: var(--z-mega);
+}
+
+.has-mega:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mega-inner {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: var(--space-lg);
+}

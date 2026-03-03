@@ -1,0 +1,12 @@
+.header { position: relative; z-index: var(--z-header); }
+
+.nav-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+}
+
+@media(min-width:1024px){
+  .nav-toggle { display: none; }
+}
