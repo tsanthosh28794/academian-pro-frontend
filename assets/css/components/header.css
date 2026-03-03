@@ -37,6 +37,17 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Hover Bridge - Prevents menu closing on mouse move gap */
+.mega-menu::before {
+  content: "";
+  position: absolute;
+  top: -40px; /* Bridge the gap to hit the header bottom */
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: transparent;
+}
+
 .mega-trigger {
   background: none;
   border: none;
@@ -426,6 +437,7 @@
   font-size: 0.95rem;
   line-height: 1.4;
   color: #fff;
+  cursor: pointer;
 }
 
 .mega-list a:hover {
@@ -445,6 +457,7 @@
   gap: var(--space-xs);
   padding: var(--space-md) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
 }
 
 .mega-job-card h5 {
@@ -466,6 +479,111 @@
   aspect-ratio: 16/9;
   object-fit: cover;
   border-radius: 12px;
+}
+
+/* Product Mega Menu */
+.mega-product .mega-product-grid {
+  grid-column: span 12;
+}
+
+.mega-product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.mega-product-card {
+  display: flex;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  cursor: pointer;
+}
+
+.mega-product-card:hover {
+  background: #161616;
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+}
+
+.mega-product-visual {
+  width: 180px;
+  min-width: 180px;
+  background: #080808;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg);
+  position: relative;
+}
+
+.mega-product-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 70%
+  );
+}
+
+.mega-product-visual img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  position: relative;
+  z-index: 2;
+  filter: saturate(1.2) brightness(1.1);
+}
+
+.mega-product-info {
+  padding: var(--space-lg) var(--space-xl) var(--space-lg) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+}
+
+.mega-product-info h4 {
+  font-size: 1.4rem !important;
+  font-weight: 700 !important;
+  margin-bottom: var(--space-sm) !important;
+  color: #fff !important;
+  border: none !important;
+  padding: 0 !important;
+  text-transform: none !important;
+  letter-spacing: -0.5px !important;
+}
+
+.mega-product-info p {
+  font-size: 0.9rem;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: var(--space-lg) !important;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.mega-product-info .mega-link {
+  margin-top: 0;
+  font-size: 0.85rem;
+  color: #fff;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.mega-product-card:hover .mega-link {
+  opacity: 1;
+  color: var(--yellow);
 }
 
 /* Segments & Services Grid */
@@ -518,6 +636,7 @@
   color: #aaa;
   line-height: 1.4;
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .mega-services-grid a:hover {
