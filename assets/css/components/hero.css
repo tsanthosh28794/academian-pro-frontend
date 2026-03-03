@@ -131,29 +131,55 @@
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 }
 
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes float-x {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(12px);
+  }
+}
+
 .icon-1 {
   top: 5%;
   left: 5%;
+  animation: float-y 4s ease-in-out infinite;
 }
 .icon-2 {
   top: 25%;
   left: -5%;
+  animation: float-x 5s ease-in-out infinite;
 }
 .icon-3 {
   bottom: 15%;
   left: 0%;
+  animation: float-y 4.5s ease-in-out infinite;
 }
 .icon-4 {
   top: 10%;
   right: 5%;
+  animation: float-x 6s ease-in-out infinite;
 }
 .icon-5 {
   top: 30%;
   right: -5%;
+  animation: float-y 5.5s ease-in-out infinite;
 }
 .icon-6 {
   bottom: 20%;
   right: 0%;
+  animation: float-x 4s ease-in-out infinite;
 }
 
 @media (min-width: 1024px) {

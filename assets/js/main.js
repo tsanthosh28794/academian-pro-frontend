@@ -54,73 +54,157 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Process Carousel
+// Process Carousel - Infinite loop sliding
 (function () {
-  const slides = document.querySelectorAll(".process-slide");
+  const track = document.getElementById("processTrack");
+  if (!track) return;
+
   const dots = document.querySelectorAll(".process-dot");
-  if (!slides.length) return;
+  const totalOriginal = 3;
 
-  const order = [2, 0, 1]; // blue, yellow, pink — center is index 1 in DOM
-  let activeIdx = 0; // which of 0,1,2 is active
-
-  function setActive(idx) {
-    activeIdx = idx;
-    slides.forEach((s) => s.classList.remove("active"));
-    dots.forEach((d) => d.classList.remove("active"));
-
-    // Find the slide with data-index matching idx
-    slides.forEach((s) => {
-      if (parseInt(s.dataset.index) === idx) {
-        s.classList.add("active");
-      }
-    });
-    dots[idx]?.classList.add("active");
-
-    // Reorder: active in center
-    const track = document.getElementById("processTrack");
-    if (!track) return;
-
-    const allSlides = Array.from(slides);
-    const activeSlide = allSlides.find(
-      (s) => parseInt(s.dataset.index) === idx
-    );
-    const others = allSlides.filter((s) => parseInt(s.dataset.index) !== idx);
-
-    // Put active in the middle
-    track.innerHTML = "";
-    track.appendChild(others[0]);
-    track.appendChild(activeSlide);
-    track.appendChild(others[1]);
+  function getSlideWidth() {
+    const firstSlide = track.querySelector(".process-slide");
+    if (!firstSlide) return 350;
+    // Get width plus negative margins
+    const style = window.getComputedStyle(firstSlide);
+    const width = parseFloat(style.width);
+    const marginLeft = parseFloat(style.marginLeft);
+    const marginRight = parseFloat(style.marginRight);
+    return width + marginLeft + marginRight;
   }
 
-  // Dot click
-  dots.forEach((dot) => {
+  // No clones for non-infinite carousel
+  const allSlides = Array.from(track.children);
+  const totalSlides = allSlides.length;
+  let currentIndex = 0;
+  let isTransitioning = false;
+
+  function getOffset(idx) {
+    const slideW = getSlideWidth();
+    const containerW = track.parentElement.offsetWidth;
+    return -(idx * slideW) + (containerW / 2) - (slideW / 2);
+  }
+
+  function updateClasses() {
+    allSlides.forEach((s, idx) => {
+      s.classList.remove("active", "visible");
+      if (idx === currentIndex) {
+        s.classList.add("active", "visible");
+      } else if (idx === currentIndex - 1 || idx === currentIndex + 1) {
+        s.classList.add("visible");
+      }
+    });
+
+    dots.forEach((d, i) => d.classList.toggle("active", i === currentIndex));
+  }
+
+  function goTo(idx, smooth = true) {
+    if (isTransitioning || idx < 0 || idx >= totalSlides) return;
+    currentIndex = idx;
+    track.style.transition = smooth ? "transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)" : "none";
+    track.style.transform = `translateX(${getOffset(currentIndex)}px)`;
+    updateClasses();
+
+    if (smooth) {
+      isTransitioning = true;
+      setTimeout(() => {
+        isTransitioning = false;
+        updateClasses();
+      }, 720);
+    }
+  }
+
+  function next() {
+    if (currentIndex < totalSlides - 1) {
+      goTo(currentIndex + 1);
+    } else {
+      // Stop at end, or stay at last slide.
+      // clearInterval(autoPlay); // Optionally stop auto-play as well
+    }
+  }
+
+  // Handle Resize
+  window.addEventListener("resize", () => {
+    track.style.transition = "none";
+    track.style.transform = `translateX(${getOffset(currentIndex)}px)`;
+  });
+
+  // Initialize position
+  goTo(currentIndex, false);
+
+  // Dot clicks
+  dots.forEach((dot, i) => {
     dot.addEventListener("click", () => {
-      setActive(parseInt(dot.dataset.slide));
+      goTo(totalOriginal + i);
     });
   });
 
-  // Slide click
-  slides.forEach((slide) => {
+  // Click on slide to navigate
+  allSlides.forEach((slide, i) => {
     slide.addEventListener("click", () => {
-      const idx = parseInt(slide.dataset.index);
-      if (idx !== activeIdx) setActive(idx);
+      if (allSlides[i].classList.contains("visible") && i !== currentIndex) {
+        goTo(i);
+      }
     });
+  });
+
+  // Touch Support
+  let touchStartX = 0;
+  let touchMoveX = 0;
+
+  carousel.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+    clearInterval(autoPlay);
+  }, { passive: true });
+
+  carousel.addEventListener("touchmove", (e) => {
+    touchMoveX = e.touches[0].clientX;
+  }, { passive: true });
+
+  carousel.addEventListener("touchend", () => {
+    const diff = touchStartX - touchMoveX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) next();
+      else goTo(currentIndex - 1);
+    }
+    autoPlay = setInterval(next, 5000);
   });
 
   // Auto-play
-  let autoPlay = setInterval(() => {
-    setActive((activeIdx + 1) % 3);
-  }, 4000);
+  let autoPlay = setInterval(next, 5000);
 
-  // Pause on hover
-  const carousel = document.querySelector(".process-carousel");
   if (carousel) {
     carousel.addEventListener("mouseenter", () => clearInterval(autoPlay));
     carousel.addEventListener("mouseleave", () => {
-      autoPlay = setInterval(() => {
-        setActive((activeIdx + 1) % 3);
-      }, 4000);
+      clearInterval(autoPlay);
+      autoPlay = setInterval(next, 5000);
     });
   }
+})();
+
+// Feature Grid Dots Sync (Mobile)
+(function() {
+  const grid = document.querySelector('.features-grid');
+  const dots = document.querySelectorAll('.indicators .dot');
+  if(!grid || dots.length === 0) return;
+
+  grid.addEventListener('scroll', () => {
+    const scrollLeft = grid.scrollLeft;
+    const width = grid.offsetWidth;
+    const index = Math.round(scrollLeft / width);
+    
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      const cardWidth = grid.querySelector('.feature-card').offsetWidth + 20; // width + gap
+      grid.scrollTo({
+        left: i * cardWidth,
+        behavior: 'smooth'
+      });
+    });
+  });
 })();

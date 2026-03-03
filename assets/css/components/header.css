@@ -102,6 +102,17 @@
   -webkit-mask-image: url("../../images/arrow-right.svg");
   mask-image: url("../../images/arrow-right.svg");
 }
+
+.icon-white {
+  background-color: #fff;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+}
 @media (min-width: 1024px) {
   .nav-item.has-mega:hover .mega-menu {
     display: block;
