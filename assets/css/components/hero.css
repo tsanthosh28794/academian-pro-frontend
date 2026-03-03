@@ -65,7 +65,7 @@
 
 .hero-content h1 {
   font-size: var(--fs-h1);
-  font-weight: 700;
+  font-weight: 400;
   color: var(--white);
   margin-bottom: var(--space-md);
   line-height: 1.1;

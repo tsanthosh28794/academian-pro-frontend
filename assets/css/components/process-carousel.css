@@ -1,0 +1,165 @@
+/* ============================
+   Process Carousel
+   ============================ */
+.process-carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 40px 0 60px;
+}
+
+.process-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 20px;
+}
+
+/* Individual Slide */
+.process-slide {
+  position: relative;
+  min-width: 380px;
+  max-width: 380px;
+  border-radius: 24px;
+  overflow: visible;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  flex-shrink: 0;
+  opacity: 0.4;
+  transform: scale(0.85);
+  filter: brightness(0.6);
+}
+
+.process-slide.active {
+  opacity: 1;
+  transform: scale(1);
+  filter: brightness(1);
+  z-index: 5;
+}
+
+/* Image Area */
+.process-slide-visual {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.process-slide-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Background colors for visual area */
+.process-slide--yellow .process-slide-visual {
+  background: linear-gradient(135deg, var(--yellow), #c4a800);
+}
+
+.process-slide--pink .process-slide-visual {
+  background: linear-gradient(135deg, var(--pink), var(--lime));
+}
+
+.process-slide--blue .process-slide-visual {
+  background: linear-gradient(135deg, var(--electric-blue), var(--bright-blue));
+}
+
+/* Info Box overlapping bottom of image */
+.process-slide-info {
+  position: relative;
+  margin: -60px 20px 0;
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 24px 20px;
+  text-align: center;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Gradient top line */
+.process-slide-info::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: 3px;
+  border-radius: 3px;
+}
+
+.process-slide--yellow .process-slide-info::before {
+  background: linear-gradient(90deg, transparent, var(--yellow), transparent);
+}
+
+.process-slide--pink .process-slide-info::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--pink),
+    var(--yellow),
+    transparent
+  );
+}
+
+.process-slide--blue .process-slide-info::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--light-blue),
+    var(--electric-blue),
+    transparent
+  );
+}
+
+.process-slide-info h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.process-slide-info p {
+  font-size: 0.85rem;
+  color: #999;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Carousel Navigation */
+.process-nav {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.process-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.process-dot.active {
+  background: var(--yellow);
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .process-slide {
+    min-width: 300px;
+    max-width: 300px;
+  }
+}

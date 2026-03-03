@@ -1,0 +1,106 @@
+/* Social Game Component */
+.social-game-wrapper {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-game-center {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  z-index: 5;
+}
+
+.social-main-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.6s ease;
+}
+
+/* Hover Effect */
+.social-game-wrapper:hover .social-main-img {
+  filter: grayscale(1) brightness(0.15);
+  opacity: 0.8;
+}
+
+/* Info Boxes */
+.game-info-box {
+  position: absolute;
+  width: 220px;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10;
+  pointer-events: none;
+  text-align: center;
+}
+
+.social-game-wrapper:hover .game-info-box {
+  opacity: 1;
+  visibility: visible;
+}
+
+.game-info-box h4 {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.game-info-box p {
+  font-size: 0.75rem;
+  color: #888;
+  line-height: 1.4;
+}
+
+/* Centered over petals */
+.game-info-box.top {
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+.social-game-wrapper:hover .game-info-box.top {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.game-info-box.right {
+  right: 18%;
+  top: 50%;
+  transform: translate(50%, -50%) scale(0.9);
+}
+.social-game-wrapper:hover .game-info-box.right {
+  transform: translate(50%, -50%) scale(1);
+}
+
+.game-info-box.bottom {
+  bottom: 18%;
+  left: 50%;
+  transform: translate(-50%, 50%) scale(0.9);
+}
+.social-game-wrapper:hover .game-info-box.bottom {
+  transform: translate(-50%, 50%) scale(1);
+}
+
+.game-info-box.left {
+  left: 18%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+}
+.social-game-wrapper:hover .game-info-box.left {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.glow-overlay {
+  display: none !important;
+}

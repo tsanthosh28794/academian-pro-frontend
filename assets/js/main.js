@@ -53,3 +53,74 @@ document.addEventListener("click", (e) => {
     megaTriggers.forEach(trigger => trigger.setAttribute("aria-expanded", "false"));
   }
 });
+
+// Process Carousel
+(function () {
+  const slides = document.querySelectorAll(".process-slide");
+  const dots = document.querySelectorAll(".process-dot");
+  if (!slides.length) return;
+
+  const order = [2, 0, 1]; // blue, yellow, pink — center is index 1 in DOM
+  let activeIdx = 0; // which of 0,1,2 is active
+
+  function setActive(idx) {
+    activeIdx = idx;
+    slides.forEach((s) => s.classList.remove("active"));
+    dots.forEach((d) => d.classList.remove("active"));
+
+    // Find the slide with data-index matching idx
+    slides.forEach((s) => {
+      if (parseInt(s.dataset.index) === idx) {
+        s.classList.add("active");
+      }
+    });
+    dots[idx]?.classList.add("active");
+
+    // Reorder: active in center
+    const track = document.getElementById("processTrack");
+    if (!track) return;
+
+    const allSlides = Array.from(slides);
+    const activeSlide = allSlides.find(
+      (s) => parseInt(s.dataset.index) === idx
+    );
+    const others = allSlides.filter((s) => parseInt(s.dataset.index) !== idx);
+
+    // Put active in the middle
+    track.innerHTML = "";
+    track.appendChild(others[0]);
+    track.appendChild(activeSlide);
+    track.appendChild(others[1]);
+  }
+
+  // Dot click
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      setActive(parseInt(dot.dataset.slide));
+    });
+  });
+
+  // Slide click
+  slides.forEach((slide) => {
+    slide.addEventListener("click", () => {
+      const idx = parseInt(slide.dataset.index);
+      if (idx !== activeIdx) setActive(idx);
+    });
+  });
+
+  // Auto-play
+  let autoPlay = setInterval(() => {
+    setActive((activeIdx + 1) % 3);
+  }, 4000);
+
+  // Pause on hover
+  const carousel = document.querySelector(".process-carousel");
+  if (carousel) {
+    carousel.addEventListener("mouseenter", () => clearInterval(autoPlay));
+    carousel.addEventListener("mouseleave", () => {
+      autoPlay = setInterval(() => {
+        setActive((activeIdx + 1) % 3);
+      }, 4000);
+    });
+  }
+})();
