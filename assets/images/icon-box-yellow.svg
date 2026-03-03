@@ -1,0 +1,37 @@
+<svg id="Icon_Box_1" data-name="Icon Box 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="551.115" height="552.409" viewBox="0 0 551.115 552.409">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_361" data-name="Rectangle 361" width="551.115" height="552.409" rx="30" fill="#0a0c6e"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_29" data-name="Mask Group 29" clip-path="url(#clip-path)">
+    <rect id="Rectangle_362" data-name="Rectangle 362" width="551.115" height="552.409" fill="#ffe115"/>
+    <path id="Path_21" data-name="Path 21" d="M84.89,84.89,552.244,0,467.354,467.354,0,552.244Z" transform="translate(275.877 -434.08) rotate(45)" fill="#0a0c6e" stroke="#000" stroke-width="3"/>
+    <path id="Path_22" data-name="Path 22" d="M84.89,84.89,552.244,0,467.354,467.354,0,552.244Z" transform="translate(275.877 241.336) rotate(45)" fill="#3f48f5" stroke="#000" stroke-width="3"/>
+  </g>
+  <g id="Group_241" data-name="Group 241" transform="translate(378.772 336.206) rotate(150)">
+    <path id="Path_18" data-name="Path 18" d="M17.732,14.495,71.828,0,56.641,52.237,0,67.414Z" transform="translate(65.777 0) rotate(45)" fill="#004cdd"/>
+    <path id="Path_19" data-name="Path 19" d="M14.03,18.79,69.618,0,54.464,56.556,0,71.149Z" transform="matrix(0.259, -0.966, 0.966, 0.259, 0, 114.952)" fill="#fff"/>
+    <path id="Path_20" data-name="Path 20" d="M13.49,53.2,67.52,67.676,54.487,14.712,0,0Z" transform="matrix(-0.259, -0.966, 0.966, -0.259, 68.838, 133.525)" fill="#0a0c6e"/>
+  </g>
+  <g id="Group_242" data-name="Group 242" transform="matrix(-0.966, 0.259, -0.259, -0.966, 357.301, 283.667)">
+    <path id="Path_18-2" data-name="Path 18" d="M10.837,8.858,43.9,0,34.615,31.924,0,41.2Z" transform="translate(40.199 0) rotate(45)" fill="#004cdd"/>
+    <path id="Path_19-2" data-name="Path 19" d="M8.574,11.483,42.546,0,33.285,34.563,0,43.482Z" transform="matrix(0.259, -0.966, 0.966, 0.259, 0, 70.251)" fill="#fff"/>
+    <path id="Path_20-2" data-name="Path 20" d="M8.244,32.512l33.019,8.848L33.3,8.991,0,0Z" transform="matrix(-0.259, -0.966, 0.966, -0.259, 42.07, 81.602)" fill="#0a0c6e"/>
+  </g>
+  <g id="Group_243" data-name="Group 243" transform="matrix(-0.966, 0.259, -0.259, -0.966, 256.956, 348.753)">
+    <path id="Path_18-3" data-name="Path 18" d="M7.74,6.327,31.352,0,24.724,22.8,0,29.426Z" transform="translate(28.711 0) rotate(45)" fill="#004cdd"/>
+    <path id="Path_19-3" data-name="Path 19" d="M6.124,8.2,30.388,0,23.773,24.686,0,31.056Z" transform="matrix(0.259, -0.966, 0.966, 0.259, 0, 50.176)" fill="#fff"/>
+    <path id="Path_20-3" data-name="Path 20" d="M5.888,23.221,29.472,29.54,23.783,6.422,0,0Z" transform="matrix(-0.259, -0.966, 0.966, -0.259, 30.048, 58.283)" fill="#0a0c6e"/>
+  </g>
+  <g id="Group_244" data-name="Group 244" transform="translate(239.616 196.33) rotate(60)">
+    <path id="Path_18-4" data-name="Path 18" d="M7.74,6.327,31.352,0,24.724,22.8,0,29.426Z" transform="translate(28.711 0) rotate(45)" fill="#004cdd"/>
+    <path id="Path_19-4" data-name="Path 19" d="M6.124,8.2,30.388,0,23.773,24.686,0,31.056Z" transform="matrix(0.259, -0.966, 0.966, 0.259, 0, 50.176)" fill="#fff"/>
+    <path id="Path_20-4" data-name="Path 20" d="M5.888,23.221,29.472,29.54,23.783,6.422,0,0Z" transform="matrix(-0.259, -0.966, 0.966, -0.259, 30.048, 58.283)" fill="#0a0c6e"/>
+  </g>
+  <g id="Group_240" data-name="Group 240" transform="matrix(-0.766, 0.643, -0.643, -0.766, 522.184, 296.09)">
+    <path id="Path_18-5" data-name="Path 18" d="M42.9,35.066,173.765,0l-36.74,126.371L0,163.086Z" transform="translate(159.127 0) rotate(45)" fill="#43f1ff" stroke="#000" stroke-width="3"/>
+    <path id="Path_19-5" data-name="Path 19" d="M33.94,45.458,168.419,0l-36.66,136.819L0,172.123Z" transform="matrix(0.259, -0.966, 0.966, 0.259, 0, 278.09)" fill="#fff" stroke="#000" stroke-width="3"/>
+    <path id="Path_20-5" data-name="Path 20" d="M32.636,128.7l130.708,35.023-31.53-128.13L0,0Z" transform="matrix(-0.259, -0.966, 0.966, -0.259, 166.533, 323.023)" fill="#0a0c6e" stroke="#000" stroke-width="3"/>
+  </g>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="551.117" height="551.117" viewBox="0 0 551.117 551.117">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_361" data-name="Rectangle 361" width="551.117" height="551.117" rx="20" transform="translate(0 0)" fill="#0a0c6e"/>
+    </clipPath>
+  </defs>
+  <g id="Icon_Box_3" data-name="Icon Box 3" transform="translate(0)">
+    <g id="Mask_Group_29" data-name="Mask Group 29" transform="translate(551.117 551.117) rotate(180)" clip-path="url(#clip-path)">
+      <rect id="Rectangle_362" data-name="Rectangle 362" width="551.117" height="551.117" transform="translate(0 0)" fill="#4bbdf5"/>
+      <path id="Path_21" data-name="Path 21" d="M84.692,84.692,550.953,0,466.261,466.261,0,550.953Z" transform="translate(275.444 -426.821) rotate(45)" fill="#0a0c6e" stroke="#000" stroke-width="3"/>
+      <path id="Path_22" data-name="Path 22" d="M84.692,84.692,550.953,0,466.261,466.261,0,550.953Z" transform="translate(275.444 233.455) rotate(45)" fill="#3f48f5" stroke="#000" stroke-width="3"/>
+    </g>
+    <g id="Rectangle_3252" data-name="Rectangle 3252" transform="translate(175.528 161.8)" fill="#ffe115" stroke="#000" stroke-width="3">
+      <rect width="200.058" height="201.704" rx="100.029" stroke="none"/>
+      <rect x="1.5" y="1.5" width="197.058" height="198.704" rx="98.529" fill="none"/>
+    </g>
+    <g id="Rectangle_3253" data-name="Rectangle 3253" transform="translate(175.531 162.625)" fill="#ff579b" stroke="#000" stroke-width="3">
+      <rect width="200.054" height="200.054" rx="100" stroke="none"/>
+      <rect x="1.5" y="1.5" width="197.054" height="197.054" rx="98.5" fill="none"/>
+    </g>
+    <g id="Group_8308" data-name="Group 8308" transform="translate(248.117 413.383) rotate(-90)">
+      <path id="Polygon_4" data-name="Polygon 4" d="M25.976,0,51.952,152.352H0Z" transform="translate(304.704 0) rotate(90)" fill="#0a0c6e" stroke="#000" stroke-width="3"/>
+      <path id="Polygon_5" data-name="Polygon 5" d="M25.976,0,51.952,152.352H0Z" transform="translate(0 51.952) rotate(-90)" fill="#fff" stroke="#000" stroke-width="3"/>
+    </g>
+  </g>
+</svg>
